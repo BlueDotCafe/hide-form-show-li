@@ -1,30 +1,21 @@
 $(document).ready(function() {
-  $(".list").hide();
   $("form#smurf-form").submit(function() {
     event.preventDefault();
 
-    var items = [
-    $("#item1").val(),
-    $("#item2").val(),
-    $("#item3").val(),
-    $("#item4").val()
-  ];
+    var itemOne = $("input#item1").val();
+    var itemTwo = $("input#item2").val();
+    var itemThree = $("input#item3").val();
+    var itemFour = $("input#item4").val();
 
-  items.sort();
+    var items = [itemOne, itemTwo, itemThree, itemFour];
 
-  var capItems = items.map(function(item) {
-      return item.toUpperCase();
-    })
+    var itemsSorted = items.sort();
 
-  capItems.forEach(function(item) {
-    var userInput = $("input#" + item).val();
-    $("." + item).text(userInput);
+    itemsSorted.forEach(function(item) {
+      var userInput = $("input#" + item).val();
+      $("." + item).toUpperCase().text(userInput);
+    });
   });
-
-  $(".story").show();
-
-  });
-});
 
 /*
     var a = $("#item1").val();
